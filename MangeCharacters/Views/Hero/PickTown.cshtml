@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MangeCharacters.Models.Town>
+
+@{
+    ViewData["Title"] = "PickTown";
+}
+
+<h2>PickTown</h2>
+
+<p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TownId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TownName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TownId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TownName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseName)
+            </td>
+            <td>
+                @Html.ActionLink("Pick", "PickCult", new { townId = item.TownId})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

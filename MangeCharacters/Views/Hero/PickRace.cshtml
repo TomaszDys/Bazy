@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MangeCharacters.Models.RaceProfessionViewModel>
+
+@{
+    ViewData["Title"] = "PickRace";
+}
+
+<h2>PickRace</h2>
+
+<p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfessionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RaceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RaceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfesionName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RaceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RaceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfesionName)
+            </td>
+            <td>
+                <a asp-action="RaceSkills" asp-route-raceId="@item.RaceId">Skills</a>
+                <br />
+                   @Html.ActionLink("Pick", "PickTown" , new { raceId = item.RaceId, profId = item.ProfessionId})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

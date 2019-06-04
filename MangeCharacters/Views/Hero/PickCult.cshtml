@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MangeCharacters.Models.Cult>
+
+@{
+    ViewData["Title"] = "PickCult";
+}
+
+<h2>PickCult</h2>
+
+<p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MagicId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CultId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CultName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MagicName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MagicId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CultId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CultName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MagicName)
+            </td>
+            <td>
+                <a asp-action="SpellMagic" asp-route-magicId="@item.MagicId">Spells</a>
+                <br />
+                @Html.ActionLink("Pick", "PickUser" , new { magicId = item.MagicId, cultId = item.CultId})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

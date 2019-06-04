@@ -1,0 +1,66 @@
+﻿@model MangeCharacters.Models.HeroViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HeroId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HeroId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Strength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Strength)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Magic)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Magic)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RaceName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RaceName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfessionName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProfessionName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CultName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CultName)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Back", null, null, null, new { href = Context.Request.Headers["Referer"].ToString() })
+    <br />
+    <a asp-action="Details" class="btn btn-default" asp-route-heroId="@Model.HeroId">Refresh</a>
+</div>

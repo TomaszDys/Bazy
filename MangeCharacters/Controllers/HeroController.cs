@@ -355,7 +355,7 @@ namespace MangeCharacters.Controllers
                     connection.Open();
                     command.CommandText =
                         $@"INSERT INTO FANTASYRPG.Hero(HeroID, Name, Strength, Magic, HP, ProfessionID, RaceID, TownID, CultID, UserID) 
-VALUES((SELECT MAX(HeroId)+1 from FANTASYRPG.Hero), '{hero.Name}', {hero.Strength},{magicId}, {hero.HP}, {profId}, {raceId}, {townId}, {cultId}, {pickedUserId} )
+VALUES((SELECT MAX(HeroId)+1 from FANTASYRPG.Hero), '{hero.Name}', {hero.Strength},{hero.Magic}, {hero.HP}, {profId}, {raceId}, {townId}, {cultId}, {pickedUserId} )
                         ";
                     OracleDataReader reader = command.ExecuteReader();
                     reader.Dispose();
